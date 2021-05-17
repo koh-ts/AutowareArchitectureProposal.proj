@@ -13,9 +13,7 @@
         prompt: "[Warning]: Skipping installation of GPU modules. To execute nodes depending on TensorRT, please manually install the modules listed above."
       when: yn_gpu != 'y'
   roles:
-    - { role: cuda, when: yn_gpu == 'y' }
     - { role: tensorrt, when: yn_gpu == 'y' }
-    - { role: ros, release: melodic }
     - osqp
     - { role: autoware, rosdistro: melodic }
     - { role: pacmod, rosdistro: melodic }
